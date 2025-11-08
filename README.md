@@ -1,44 +1,33 @@
 # 🌐 Arun Binu — Portfolio Website
 
-### 🚀 [Live Demo](https://arunbinu00.github.io/Arun-Binu-Portfolio/)
+### 🚀 Live at: [https://arunbinu00.github.io/Arun-Binu-Portfolio/](https://arunbinu00.github.io/Arun-Binu-Portfolio/)
 
-A modern, responsive personal portfolio website built to showcase my work, skills, and projects as a **Computer Science Engineer** passionate about **web development** and **AI integration**.
-
-This website highlights my ability to design, develop, and deploy scalable, user-friendly digital solutions that combine **clean design** with **strong functionality**.
+A modern, responsive personal portfolio website showcasing my work, projects, and skills as a **Computer Science Engineer**.  
+Designed and developed to demonstrate my expertise in **web development** and **AI integration**, combining clean design with strong functionality.
 
 ---
 
 ## 🛠️ Tech Stack
-
 - **Frontend:** HTML5, CSS3, Bootstrap  
-- **Backend / API Integration:** Node.js, OpenAI API  
+- **Backend / Integration:** Node.js, OpenAI API  
 - **Tools:** Git, GitHub, VS Code  
 
 ---
 
 ## ✨ Features
-
-- Fully responsive modern design  
-- “About Me”, “Skills”, and “Projects” sections  
-- AI & Web Development–themed projects  
-- Contact form powered by **Formspree**  
-- Hosted free on **GitHub Pages**
-
----
-
-## 📂 Deployment
-
-Hosted with **GitHub Pages**  
-> 🔗 [https://arunbinu00.github.io/Arun-Binu-Portfolio/](https://arunbinu00.github.io/Arun-Binu-Portfolio/)
+- Fully responsive design  
+- Smooth scrolling navigation  
+- “About”, “Skills”, and “Projects” sections  
+- Functional **contact form** (powered by Formspree)  
+- Hosted free using **GitHub Pages**
 
 ---
 
-## 💡 Author
-
+## 👨‍💻 Author
 **Arun Binu**  
 📧 [arunbinu369@gmail.com](mailto:arunbinu369@gmail.com)  
 📍 Palakkad, Kerala, India  
 
 ---
 
-### 🖤 Built with passion, curiosity, and code.
+> 💙 Built with passion, creativity, and code.
