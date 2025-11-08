@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arun Binu — Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #041221;
+      --surface: #0b1a24;
+      --muted: #9fb3bf;
+      --accent: #06f0e0;
+      --accent2: #9b5cff;
+      --text: #e6f6f6;
+      --radius: 14px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 90px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar {
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-link.active {
+      box-shadow: inset 0 -3px 0 0 var(--accent);
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, .08);
+      padding: .4rem .9rem;
+      border-radius: 20px;
+    }
+
+    .surface {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, .08);
+      padding: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .ring img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, .15);
+    }
+
+    .skill-bar {
+      height: 10px;
+      background: rgba(255, 255, 255, .12);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+
+    .badge-tech {
+      background: rgba(255, 255, 255, .04);
+      border-radius: 8px;
+      padding: .35rem .6rem;
+      margin: .15rem;
+      display: inline-block;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .project-tech {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      margin-bottom: 18px;
+    }
+
+    a.btn-accent {
+      color: var(--bg);
+      text-decoration: none;
+    }
+
+    /* --- contact-specific styles (keeps theme consistent) --- */
+    .contact { padding: 60px 0; background: var(--background); width:100%; box-sizing: border-box; }
+    .contact .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .contact .section-title { text-align: center; margin-bottom: 10px; }
+    .contact-content { display:flex; gap:30px; align-items:flex-start; flex-wrap:wrap; }
+    .contact-info { flex: 1 1 360px; min-width: 280px; }
+    .contact-form { flex: 1 1 420px; min-width: 300px; }
+
+    .contact-item { display:flex; gap:16px; margin-bottom:18px; align-items:center; }
+    .contact-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:var(--surface); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .contact-icon svg { width:22px; height:22px; fill: none; stroke: var(--accent); stroke-width:1.6; }
+    .contact-item h3 { margin:0 0 2px 0; font-size:1rem; color:var(--text); }
+    .contact-item p { margin:0; color:var(--muted); font-size:0.95rem; }
+
+    .contact-form form { background: var(--surface); padding:20px; border-radius:10px; box-shadow:0 4px 20px rgba(0,0,0,0.03); }
+    .form-group { margin-bottom:14px; }
+    .form-group label { display:block; font-size:0.9rem; margin-bottom:6px; color:var(--text); }
+    .form-control { width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); box-sizing:border-box; font-size:0.95rem; background: transparent; color: var(--text); }
+    .form-control::placeholder { color: rgba(159,179,191,0.5); }
+    .form-control:focus { outline: none; box-shadow: 0 0 0 3px rgba(6,240,224,0.06); }
+
+    .btn-send { display:inline-block; padding:10px 18px; border-radius:8px; background:var(--accent); color:#041221; border:none; cursor:pointer; font-weight:600; }
+    .form-status { margin-top:10px; font-size:0.95rem; color:var(--muted); }
+
+    @media (max-width: 900px) {
+      .contact-content { flex-direction: column-reverse; }
+      .contact-form, .contact-info { width:100%; }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top navbar-dark" style="background:#041221cc;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">Portfolio.</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="container text-center text-lg-start">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h1 class="mt-3 fw-bold">Hello, it's me<br><span class="gradient-text">ARUN BINU</span></h1>
+          <p class="lead" style="color:var(--muted)">
+            I’m a Computer Science Engineer passionate about building modern, intelligent, and efficient digital
+            solutions.
+            With expertise in full-stack development and AI integration using Python, JavaScript, Node.js, and OpenAI
+            APIs,
+            I create scalable, user-focused applications that combine clean design with strong functionality. I’m driven
+            by
+            innovation and a desire to turn technology into impactful, real-world solutions.
+          </p>
+          <a href="#about" class="btn btn-accent btn-lg px-4" style="background:var(--accent);font-weight:600;">
+            More About Me
+          </a>
+        </div>
+        <div class="col-lg-5 text-center mt-4">
+          <div class="ring">
+            <img src="C:\Users\adars\Downloads\ARUN\portfolio\images\arunprofile.jpg" alt="Profile">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* Surface fills full width, but .surface-inner constrains content for readability */
+      .surface {
+        width: 100%;
+        background: var(--surface);
+        box-sizing: border-box;
+      }
+
+      .surface-inner {
+        max-width: 1200px;
+        /* limit line length for readability */
+        margin: 0 auto;
+        /* center the content */
+        padding: 60px 8vw;
+        /* comfortable spacing from edges */
+        box-sizing: border-box;
+      }
+
+      h2.section-title {
+        text-align: center;
+        margin: 0 0 16px 0;
+        font-size: 1.8rem;
+      }
+
+      .surface p {
+        color: var(--muted);
+        text-align: justify;
+        font-size: 1.03rem;
+        line-height: 1.7;
+        margin-top: 12px;
+      }
+
+      /* Skills badges */
+      .skills-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .badge-tech {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        font-size: 0.95rem;
+      }
+
+      /* Small screens: reduce padding */
+      @media (max-width: 768px) {
+        .surface-inner {
+          padding: 40px 6vw;
+        }
+
+        h2.section-title {
+          font-size: 1.5rem;
+        }
+
+        .surface p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+
+    <!-- ABOUT -->
+    <section id="about" class="w-100" style="background: var(--background);">
+      <div class="surface">
+        <div class="surface-inner">
+          <h2 class="section-title">About Me</h2>
+          <p>
+            I’m Arun Binu, a Computer Science Engineer from Palakkad, Kerala, driven by a deep passion for creating
+            modern,
+            intelligent, and efficient digital solutions. I specialize in full-stack web development and AI integration,
+            combining clean design with strong functionality to deliver seamless, scalable, and user-focused
+            applications.
+            With hands-on experience in technologies such as Python, JavaScript, and Node.js, I enjoy turning ideas into
+            practical systems that solve real-world problems and enhance digital experiences. Currently pursuing an MBA in
+            Business Analytics and Human Resource Management, I’m expanding my perspective to bridge the gap between
+            technology and business strategy — enabling me to build solutions that are not only technically robust but also
+            aligned with organizational growth and innovation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="w-100" style="background: var(--background);">
+      <div class="surface">
+        <div class="surface-inner">
+          <h2 class="section-title">Skills</h2>
+
+          <div style="margin-top: 18px;">
+            <h5 class="mt-3">Technical Skills</h5>
+            <div class="skills-row" aria-label="Technical skills">
+              <div class="badge-tech">Python</div>
+              <div class="badge-tech">HTML</div>
+              <div class="badge-tech">CSS</div>
+              <div class="badge-tech">JavaScript</div>
+              <div class="badge-tech">Node.js</div>
+              <div class="badge-tech">OpenAI API</div>
+              <div class="badge-tech">Power BI</div>
+              <div class="badge-tech">MS Office</div>
+              <div class="badge-tech">Network Security</div>
+              <div class="badge-tech">Operating Systems</div>
+            </div>
+
+            <h5 class="mt-4">Soft Skills</h5>
+            <div class="skills-row" aria-label="Soft skills">
+              <div class="badge-tech">Communication</div>
+              <div class="badge-tech">Problem-Solving</div>
+              <div class="badge-tech">Teamwork</div>
+              <div class="badge-tech">Adaptability</div>
+              <div class="badge-tech">Attention to Detail</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="w-100" style="padding: 60px 0; background: var(--background);">
+      <div class="surface" style="width: 90%; padding: 40px 8vw; margin: 0 auto;">
+        <h2 style="text-align: center;">Education</h2>
+        <div style="margin-top: 30px; line-height: 1.8; color: var(--muted);">
+          <p>
+            <b>San International Business School (Online)</b><br>
+            MBA — Business Analytics & Human Resource
+            <span class="muted">(Expected 2026)</span>
+          </p>
+
+          <p>
+            <b>Dhanalakshmi Srinivasan College of Engineering</b><br>
+            BE — Computer Science, CGPA: 7.79
+            <span class="muted">(2019–2023)</span>
+          </p>
+
+          <p>
+            <b>Railway Higher Secondary School, DHSE</b><br>
+            Computer Science, CGPA: 7.43
+            <span class="muted">(2018–2019)</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="w-100" style="padding: 60px 0; background: var(--background);">
+      <div class="surface" style="width: 100%; padding: 60px 8vw; margin: 0 auto;">
+        <h2 style="text-align: center;">Projects</h2>
+
+        <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 40px; justify-content: center;">
+
+          <!-- Project 1 -->
+          <div class="surface"
+            style="flex: 1 1 500px; max-width: 550px; padding: 30px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05); background: var(--surface);">
+            <h3 style="margin-bottom: 10px;">AI Code Review Assistant</h3>
+            <p class="project-tech" style="font-weight: 600; color: var(--accent); margin-bottom: 10px;">
+              Python • OpenAI API • LangChain
+            </p>
+            <p class="project-desc" style="color: var(--muted); text-align: justify;">
+              Developed an AI-powered tool that analyzes Python code using Large Language Models to provide automated
+              code reviews.
+              Implemented multi-step prompting strategies to generate actionable feedback on code quality, potential
+              bugs, and
+              security issues. The system evaluates code against PEP 8 standards and identifies common anti-patterns.
+            </p>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="surface"
+            style="flex: 1 1 500px; max-width: 550px; padding: 30px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05); background: var(--surface);">
+            <h3 style="margin-bottom: 10px;">AI-Powered Chatbot</h3>
+            <p class="project-tech" style="font-weight: 600; color: var(--accent); margin-bottom: 10px;">
+              OpenAI API • Node.js • JavaScript • HTML/CSS
+            </p>
+            <p class="project-desc" style="color: var(--muted); text-align: justify;">
+              Developed a full-stack AI chatbot application integrating OpenAI’s GPT API to understand user intent and
+              generate
+              coherent responses in real time. Built a secure RESTful API using Node.js and Express.js to mediate
+              requests,
+              implementing prompt engineering techniques to improve response quality. Created a responsive user
+              interface
+              with message history and modern design.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIP -->
+    <section id="internship" class="container">
+      <div class="surface">
+        <h2>Internship</h2>
+        <h5>Python Intern — Softronics</h5>
+        <p class="muted">Palakkad, Kerala | July 2022 – Aug 2022</p>
+        <ul>
+          <li>Acquired in-depth knowledge of Python programming, data structures, OOP principles, and algorithm
+            design.</li>
+          <li>Gained experience in debugging, testing, and documenting code following industry best practices.</li>
+          <li>Collaborated with team members on small projects to enhance practical coding experience.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT (UPDATED: friend-style with Formspree) -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Get In Touch</h2>
+          <p>Let's discuss how we can work together</p>
+        </div>
+
+        <div class="contact-content">
+          <!-- Left: Contact Info -->
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <!-- map pin svg -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 21s8-6.5 8-11a8 8 0 1 0-16 0c0 4.5 8 11 8 11z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Location</h3>
+                <p>Palakkad, Kerala, India</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <!-- envelope svg -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 8.5l8.5 5L20 8.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Email</h3>
+                <p><a href="mailto:arunbinu369@gmail.com" style="color:var(--accent); text-decoration:none;">arunbinu369@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <!-- phone svg -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M22 16.92V21a1 1 0 0 1-1.11 1 19 19 0 0 1-8.63-3.07 19 19 0 0 1-6-6 19 19 0 0 1-3.07-8.63A1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.64.35 1.95.53 2.49a1 1 0 0 1-.24 1L7.6 8.6a14 14 0 0 0 6 6l1.36-1.36a1 1 0 0 1 1-.24c.54.18 1.85.41 2.49.53a1 1 0 0 1 .75 1V21z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Phone</h3>
+                <p>+91 75590 25663</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <!-- language svg -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M2 12h20" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 2a15 15 0 0 1 0 20" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 2a15 15 0 0 0 0 20" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Languages</h3>
+                <p>English, Malayalam, Tamil</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="contact-form">
+            <form id="contactForm" action="https://formspree.io/f/myzlgkal" method="POST" novalidate>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" class="form-control" placeholder="Your name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" class="form-control" placeholder="Subject" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" class="form-control" placeholder="Write your message..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-send">Send Message</button>
+              <div id="formStatus" class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Designed & Built by Arun Binu © 2025</footer>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const statusEl = document.getElementById('formStatus');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        statusEl.style.color = 'var(--muted)';
+        statusEl.textContent = 'Sending...';
+
+        const data = new FormData(form);
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: data
+        })
+        .then(response => response.json().catch(() => ({})))
+        .then(json => {
+          // Formspree returns {"ok": true} on success for most setups
+          if (json.ok === true || json.success === true || (response && response.status === 200)) {
+            statusEl.style.color = 'limegreen';
+            statusEl.textContent = 'Thanks — your message has been sent!';
+            form.reset();
+          } else {
+            // If Formspree returns an error object, show message if available
+            statusEl.style.color = 'crimson';
+            statusEl.textContent = 'Oops — something went wrong. Please try again.';
+            console.warn('Formspree response:', json);
+          }
+        })
+        .catch(err => {
+          statusEl.style.color = 'crimson';
+          statusEl.textContent = 'Network error. Please try again later.';
+          console.error('Form submit error:', err);
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
